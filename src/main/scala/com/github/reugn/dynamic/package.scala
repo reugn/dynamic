@@ -9,7 +9,7 @@ package object dynamic {
       * Searches for key recursively
       *
       * {{{
-      *     import reug.dynamic._
+      *     import com.github.reugn.dynamic._
       *     case class Foo(i: Int, s: String)
       *     val foo = Foo(1, "str")
       *     val copied_foo = copy(foo, "i", 2)
