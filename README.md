@@ -1,4 +1,5 @@
 # dynamic
+[ ![Download](https://api.bintray.com/packages/reug/maven/dynamic/images/download.svg) ](https://bintray.com/reug/maven/dynamic/_latestVersion)  
 Copy case class using dynamic field name
 
 ## Getting started
