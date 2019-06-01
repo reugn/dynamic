@@ -1,14 +1,16 @@
 # dynamic
-[ ![Download](https://api.bintray.com/packages/reug/maven/dynamic/images/download.svg) ](https://bintray.com/reug/maven/dynamic/_latestVersion)  
+[ ![Download](https://api.bintray.com/packages/reug/maven/dynamic/images/download.svg) ](https://bintray.com/reug/maven/dynamic/_latestVersion)
+[![Build Status](https://travis-ci.org/reugn/dynamic.svg?branch=master)](https://travis-ci.org/reugn/dynamic)
+
 Copy case class using dynamic field name
 
 ## Getting started
 Add bintray resolver:
-```sbtshell
+```scala
 resolvers += Resolver.bintrayRepo("reug", "maven")
 ```
 Add dynamic library as a dependency in your project:
-```sbtshell
+```scala
 libraryDependencies += "com.github.reugn" %% "dynamic" % "<version>"
 ```
 ## Usage
@@ -27,4 +29,4 @@ val copied_baz = copy(baz, "b", new_bar)
 copied_baz.b shouldBe new_bar
 ```
 ## License
-Licensed under the Apache 2.0 License. See the [LICENSE](./LICENSE) file for details.
+Licensed under the [Apache 2.0 License](./LICENSE).
