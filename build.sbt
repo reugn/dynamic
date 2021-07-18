@@ -1,13 +1,13 @@
 name := "dynamic"
 organization := "com.github.reugn"
 
-scalaVersion := "2.12.8"
-crossScalaVersions := Seq("2.11.12", scalaVersion.value)
+scalaVersion := "2.12.14"
+crossScalaVersions := Seq(scalaVersion.value, "2.13.6")
 
 libraryDependencies ++= Seq(
     "org.scala-lang" % "scala-reflect" % scalaVersion.value,
-    "com.softwaremill.quicklens" %% "quicklens" % "1.4.12",
-    "org.scalatest" %% "scalatest" % "3.0.5" % Test
+    "com.softwaremill.quicklens" %% "quicklens" % "1.7.4",
+    "org.scalatest" %% "scalatest" % "3.2.9" % Test
 )
 
 scalacOptions := Seq(
