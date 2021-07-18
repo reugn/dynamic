@@ -1,19 +1,17 @@
 # dynamic
-[ ![Download](https://api.bintray.com/packages/reug/maven/dynamic/images/download.svg) ](https://bintray.com/reug/maven/dynamic/_latestVersion)
 [![Build Status](https://travis-ci.org/reugn/dynamic.svg?branch=master)](https://travis-ci.org/reugn/dynamic)
 
-Copy case class using dynamic field name
+A Scala library that allows copying a case class using a dynamic property name.
 
 ## Getting started
-Add bintray resolver:
-```scala
-resolvers += Resolver.bintrayRepo("reug", "maven")
+`dynamic` is available for the JVM Runtime using Scala 2.12, 2.13.
+
+Build from source:
+```sh
+sbt clean +package
 ```
-Add dynamic library as a dependency in your project:
-```scala
-libraryDependencies += "com.github.reugn" %% "dynamic" % "<version>"
-```
-## Usage
+
+## Usage example
 ```scala
 case class Foo(i: Int, s: String)
 case class Bar(f: Foo, b: Boolean)
@@ -28,5 +26,6 @@ val new_bar = Bar(Foo(10, "str10"), b = true)
 val copied_baz = copy(baz, "b", new_bar)
 copied_baz.b shouldBe new_bar
 ```
+
 ## License
 Licensed under the [Apache 2.0 License](./LICENSE).
