@@ -1,8 +1,9 @@
 package com.github.reugn.dynamic.test
 
-import org.scalatest.{FlatSpec, Matchers}
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class DynamicTest extends FlatSpec with Matchers {
+class DynamicTest extends AnyFlatSpec with Matchers {
 
     case class Foo(i: Int, s: String)
 
@@ -21,6 +22,7 @@ class DynamicTest extends FlatSpec with Matchers {
         val foo = Foo(1, "str")
         val copied_foo = copy(foo, i_field, new_int_field)
         copied_foo.i shouldBe 3
+        foo.s shouldBe theSameInstanceAs(copied_foo.s)
     }
 
     it should "throw MatchError on non existing key" in {
@@ -37,7 +39,7 @@ class DynamicTest extends FlatSpec with Matchers {
         val foo = Foo(1, "str")
         val bar = Bar(foo, b = false)
         val baz = Baz(bar, 4, 5, "str2")
-        val copied_baz = copy(baz, "i", 3)
+        val copied_baz = copy(baz, i_field, new_int_field)
         copied_baz.b.f.i shouldBe 3
     }
 
