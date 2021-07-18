@@ -6,7 +6,8 @@ import scala.reflect.macros.blackbox
 
 object DynamicMacros {
 
-    def copyImpl[T: c.WeakTypeTag](c: blackbox.Context)(inst: c.Tree, key: c.Tree, nval: c.Tree): c.universe.Tree = {
+    def copyImpl[T: c.WeakTypeTag](c: blackbox.Context)(inst: c.Tree, property: c.Tree,
+                                                        value: c.Tree): c.universe.Tree = {
         import c.universe._
         val sym = c.symbolOf[T]
         if (!sym.asClass.isCaseClass) {
@@ -31,10 +32,10 @@ object DynamicMacros {
                         recursiveFields(path, e._2.asType.toType)
                     else
                         ""
-                    if (e._2.asType.toType == nval.tpe.typeSymbol.asType.toType)
+                    if (e._2.asType.toType == value.tpe.typeSymbol.asType.toType)
                         s"""
                            |    case "${e._1}" =>
-                           |        ${show(inst)}.modify(_.$path).setTo($nval)
+                           |        ${show(inst)}.modify(_.$path).setTo($value)
                         """.stripMargin + rec
                     else
                         rec
@@ -49,7 +50,7 @@ object DynamicMacros {
         val importLens = q"import com.softwaremill.quicklens._"
         val cond =
             s"""
-               |${strKey(key)} match {
+               |${strKey(property)} match {
                |    ${recursiveFields("", inst.tpe)}
                |}
              """.stripMargin

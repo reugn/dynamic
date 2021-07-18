@@ -5,8 +5,8 @@ import scala.language.experimental.macros
 package object dynamic {
 
     /**
-      * Copies case class using dynamic field name
-      * Searches for key recursively
+      * Copies a case class using a dynamic property name.
+      * Searches for the specified field name recursively.
       *
       * {{{
       *     import com.github.reugn.dynamic._
@@ -15,13 +15,13 @@ package object dynamic {
       *     val copied_foo = copy(foo, "i", 2)
       * }}}
       *
-      * @param inst case class instance to copy from
-      * @param key  dynamic field name
-      * @param nval new value object
-      * @tparam T case class type
-      * @throws scala.MatchError on non existing key
-      * @return T copy result
+      * @param inst the case class instance to copy from.
+      * @param property the property name with which the specified value is to be associated.
+      * @param value the value to be associated with the specified property name.
+      * @tparam T the type of the case class.
+      * @throws scala.MatchError on non existing field.
+      * @return T a shallow copy of the class instance with the updated property.
       */
     @throws(classOf[MatchError])
-    def copy[T](inst: T, key: String, nval: Any): T = macro DynamicMacros.copyImpl[T]
+    def copy[T](inst: T, property: String, value: Any): T = macro DynamicMacros.copyImpl[T]
 }
