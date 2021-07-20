@@ -1,5 +1,5 @@
 # dynamic
-[![Build Status](https://travis-ci.org/reugn/dynamic.svg?branch=master)](https://travis-ci.org/reugn/dynamic)
+[![Build](https://github.com/reugn/dynamic/actions/workflows/build.yml/badge.svg)](https://github.com/reugn/dynamic/actions/workflows/build.yml)
 
 A Scala library that allows copying a case class using a dynamic property name.
 
