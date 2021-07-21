@@ -17,7 +17,7 @@ case class Foo(i: Int, s: String)
 case class Bar(f: Foo, b: Boolean)
 case class Baz(b: Bar, i1: Int, i2: Int, s2: String)
 
-import com.github.reugn.dynamic._
+import io.github.reugn.dynamic._
 val foo = Foo(1, "str")
 val bar = Bar(foo, b = false)
 val baz = Baz(bar, 4, 5, "str2")
