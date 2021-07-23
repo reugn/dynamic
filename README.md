@@ -1,10 +1,16 @@
 # dynamic
 [![Build](https://github.com/reugn/dynamic/actions/workflows/build.yml/badge.svg)](https://github.com/reugn/dynamic/actions/workflows/build.yml)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.reugn/dynamic_2.12/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.reugn/dynamic_2.12/)
 
 A Scala library that allows copying a case class using a dynamic property name.
 
 ## Getting started
 `dynamic` is available for the JVM Runtime using Scala 2.12, 2.13.
+
+Add as a dependency:
+```scala
+libraryDependencies += "io.github.reugn" %% "dynamic" % version
+```
 
 Build from source:
 ```sh
@@ -17,7 +23,7 @@ case class Foo(i: Int, s: String)
 case class Bar(f: Foo, b: Boolean)
 case class Baz(b: Bar, i1: Int, i2: Int, s2: String)
 
-import io.github.reugn.dynamic._
+import io.github.reugn.dynamic.copy
 val foo = Foo(1, "str")
 val bar = Bar(foo, b = false)
 val baz = Baz(bar, 4, 5, "str2")
